@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فارکس و سرمایه‌گذاری</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; }
+        header { background: #2c3e50; color: white; padding: 15px; }
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { display: inline; margin: 0 15px; }
+        nav ul li a { color: white; text-decoration: none; }
+        section { padding: 20px; }
+        #news-container { background: #ecf0f1; padding: 10px; border-radius: 5px; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>سایت حرفه‌ای فارکس و سرمایه‌گذاری</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">خانه</a></li>
+                <li><a href="#charts">نمودار زنده</a></li>
+                <li><a href="#news">اخبار</a></li>
+                <li><a href="#contact">تماس</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="charts">
+        <h2>نمودار زنده فارکس</h2>
+        <canvas id="forexChart"></canvas>
+    </section>
+    
+    <section id="news">
+        <h2>آخرین اخبار اقتصادی</h2>
+        <div id="news-container">در حال دریافت اخبار...</div>
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let ctx = document.getElementById('forexChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['10:00', '10:05', '10:10', '10:15'],
+                    datasets: [{
+                        label: 'نرخ EUR/USD',
+                        data: [1.1, 1.105, 1.102, 1.108],
+                        borderColor: 'blue',
+                        fill: false
+                    }]
+                }
+            });
+        });
+    </script>
+</body>
+</html>
